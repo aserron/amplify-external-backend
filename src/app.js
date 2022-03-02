@@ -9,7 +9,7 @@ var logger = require('morgan');
 
 var sassMiddleware = require('node-sass-middleware');
 
-var indexRouter = require('./routes/index');
+var indexRouter = require('./routes');
 var usersRouter = require('./routes/users');
 var sohoRouter = require('./routes/zoho');;
 

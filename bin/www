@@ -2,7 +2,12 @@
 
 // ** import .env vars into process.env
 const dotenv = require('dotenv');
-dotenv.config({debug:true})
+dotenv.config({
+  debug: false,
+  override: {
+    NODE_ENV: 'production'
+  }
+})
 
 /*
  * Module dependencies.
@@ -12,8 +17,8 @@ dotenv.config({debug:true})
  *
  * @type {Express}
  */
-var app = require('../app');
-var debug = require('debug')('nit-amplify:server');
+var app = require('../src/app');
+var debug = require('debug')('*');
 var http = require('http');
 
 
@@ -107,6 +112,7 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind +'\n');
   debug(`server url: http://${addr}:${port}/ `);
+  console.log(`server url:\n http://${addr.address}:${port}/ `)
 }
 
-console.log('lunched', server)
+// console.log('lunched', server)
